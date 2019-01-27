@@ -13,6 +13,7 @@ import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
+import { PagesComponent } from './pages/pages.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { APP_ROUTES } from './app.routes';
     Graficas1Component,
     HeaderComponent,
     SidebarComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
