@@ -14,6 +14,7 @@ import { BreadcrumbsComponent } from './shared/breadcrumbs/breadcrumbs.component
 // Rutas
 import { APP_ROUTES } from './app.routes';
 import { PagesComponent } from './pages/pages.component';
+import { RegistrerComponent } from './login/registrer.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { PagesComponent } from './pages/pages.component';
     HeaderComponent,
     SidebarComponent,
     BreadcrumbsComponent,
-    PagesComponent
+    PagesComponent,
+    RegistrerComponent
   ],
   imports: [
     BrowserModule,
