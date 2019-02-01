@@ -25,7 +25,7 @@ export class AccoutSettingsComponent implements OnInit {
 
     const selectores: any = document.getElementsByClassName('selector');
 
-    for ( let ref of selectores ) {
+    for ( const ref of selectores ) {
       ref.classList.remove('working');
     }
 
@@ -39,7 +39,7 @@ export class AccoutSettingsComponent implements OnInit {
 
     const tema = this._ajustes.ajustes.tema;
 
-    for ( let ref of selectores ) {
+    for ( const ref of selectores ) {
       if ( ref.getAttribute('data-theme') === tema ) {
         ref.classList.add('working');
         break;
