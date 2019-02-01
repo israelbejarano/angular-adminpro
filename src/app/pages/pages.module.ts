@@ -16,6 +16,7 @@ import { ChartsModule } from 'ng2-charts';
 
 //Rutas
 import { PAGES_ROUTES } from './pages.routes';
+import { PromesasComponent } from './promesas/promesas.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PAGES_ROUTES } from './pages.routes';
         Graficas1Component,
         IncrementadorComponent,    // de manera temporal
         GraficoDonutComponent,
-        AccoutSettingsComponent
+        AccoutSettingsComponent,
+        PromesasComponent
     ],
     imports: [
         SharedModule,
