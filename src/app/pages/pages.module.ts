@@ -9,6 +9,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut.component';
+import { AccoutSettingsComponent } from './account-settings/account-settings.component';
 
 
 import { ChartsModule } from 'ng2-charts';
@@ -24,7 +25,8 @@ import { PAGES_ROUTES } from './pages.routes';
         ProgressComponent,
         Graficas1Component,
         IncrementadorComponent,    // de manera temporal
-        GraficoDonutComponent
+        GraficoDonutComponent,
+        AccoutSettingsComponent
     ],
     imports: [
         SharedModule,
