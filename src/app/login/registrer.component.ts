@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuarioService } from '../services/service.index';
+import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario.model';
 
 declare function init_plugins();
@@ -28,7 +29,7 @@ export class RegistrerComponent implements OnInit {
     };
   }
 
-  constructor(public _usuarioService: UsuarioService) { }
+  constructor(public _usuarioService: UsuarioService, public router: Router) { }
 
   ngOnInit() {
     init_plugins();
@@ -66,6 +67,7 @@ export class RegistrerComponent implements OnInit {
     );
     this._usuarioService.crearUsuario(usuario).subscribe(resp => {
       console.log(resp);
+      this.router.navigate(['/login']);
     });
   }
 
