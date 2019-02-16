@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // temporal
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';  // temporal
 
 
 import { AppComponent } from './app.component';
@@ -29,6 +29,7 @@ import { ServiceModule } from './services/service.module';
     APP_ROUTES,
     PagesModule,
     FormsModule,  // hasta que no haya un modulo para los componentes personalizado lo situo aquí
+    ReactiveFormsModule,
     ServiceModule
   ],
   providers: [],
