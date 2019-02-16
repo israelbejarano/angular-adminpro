@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UsuarioService } from '../services/service.index';
+import { Usuario } from '../models/usuario.model';
 
 declare function init_plugins();
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-registrer',
@@ -25,7 +28,7 @@ export class RegistrerComponent implements OnInit {
     };
   }
 
-  constructor() { }
+  constructor(public _usuarioService: UsuarioService) { }
 
   ngOnInit() {
     init_plugins();
@@ -51,11 +54,19 @@ export class RegistrerComponent implements OnInit {
       return;
     }
     if (!this.forma.value.condiciones) {
-      console.log('Debe aceptar los términos.');
+      swal('Importante', 'Debe aceptar las condiciones', 'warning');
       return;
     }
-    console.log(this.forma.valid);
+
     console.log(this.forma.value);
+    const usuario = new Usuario(
+      this.forma.value.nombre,
+      this.forma.value.correo,
+      this.forma.value.password
+    );
+    this._usuarioService.crearUsuario(usuario).subscribe(resp => {
+      console.log(resp);
+    });
   }
 
 }
