@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';  // temporal
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RegistrerComponent } from './login/registrer.component';
+import { RegisterComponent } from './login/register.component';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
@@ -22,7 +22,7 @@ import { ServiceModule } from './services/service.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrerComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

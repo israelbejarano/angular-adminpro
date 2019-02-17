@@ -8,11 +8,11 @@ declare function init_plugins();
 import swal from 'sweetalert';
 
 @Component({
-  selector: 'app-registrer',
-  templateUrl: './registrer.component.html',
+  selector: 'app-register',
+  templateUrl: './register.component.html',
   styleUrls: ['./login.component.css']
 })
-export class RegistrerComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
 
