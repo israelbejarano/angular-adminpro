@@ -16,7 +16,12 @@ export class UsuarioService {
 
    login(usuario: Usuario, recordar: boolean = false) {
      const url = URL_SERVICIOS + '/login';
-     return this.http.post(url, usuario);
+     return this.http.post(url, usuario).pipe(map((resp: any) => {
+      localStorage.setItem('id', resp.id);
+      localStorage.setItem('token', resp.token);
+      localStorage.setItem('usuario', JSON.stringify(resp.usuario));
+      return resp.usuario;
+    }));
    }
 
    crearUsuario(usuario: Usuario) {
