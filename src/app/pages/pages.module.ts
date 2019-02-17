@@ -11,6 +11,8 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut.component';
 import { AccoutSettingsComponent } from './account-settings/account-settings.component';
 
+import { PipesModule } from '../pipes/pipes.module';
+
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -36,7 +38,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ],
     exports: [
         DashboardComponent,
