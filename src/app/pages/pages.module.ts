@@ -10,6 +10,9 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonutComponent } from '../components/grafico-donut/grafico-donut.component';
 import { AccoutSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { PipesModule } from '../pipes/pipes.module';
 
@@ -18,8 +21,6 @@ import { ChartsModule } from 'ng2-charts';
 
 //Rutas
 import { PAGES_ROUTES } from './pages.routes';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraficoDonutComponent,
         AccoutSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     imports: [
         SharedModule,
