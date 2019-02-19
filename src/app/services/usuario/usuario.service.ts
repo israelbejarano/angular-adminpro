@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { identifierModuleUrl } from '@angular/compiler';
 
 
 @Injectable({
@@ -79,4 +80,13 @@ export class UsuarioService {
        return resp.usuario;
      }));
    }
+
+   acualizarUsuario(usuario: Usuario) {
+     let url = URL_SERVICIOS + '/usuario' + usuario.id;
+     url += '?token=' + this.token;
+     console.log(url);
+     return this.http.put(url, usuario).pipe(map((resp: any) => {
+      return resp.usuario;
+     }));
+    }
 }
