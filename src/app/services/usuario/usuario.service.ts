@@ -5,6 +5,7 @@ import { URL_SERVICIOS } from '../../config/config';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
+import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 
 
 @Injectable({
@@ -15,7 +16,7 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public http: HttpClient, public router: Router) {
+  constructor(public http: HttpClient, public router: Router, public _subirArchivoService: SubirArchivoService) {
     console.log('Servicio de usuario listo');
     this.cargarStorage();
    }
@@ -90,5 +91,14 @@ export class UsuarioService {
        this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
        return resp.usuario;
      }));
+    }
+
+    cambiarimagen(archivo: File, id: string) {
+      this._subirArchivoService.subirArchivo(archivo, 'usuarios', id).subscribe(resp => {
+        console.log(resp);
+        this.usuario.img = resp.usuario.img;
+        swal('Imagen actualizada', this.usuario.nombre, 'success');
+        this.guardarStorage(id, this.token, this.usuario);
+      });
     }
 }

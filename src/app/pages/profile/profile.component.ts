@@ -10,6 +10,8 @@ import { UsuarioService } from 'src/app/services/service.index';
 export class ProfileComponent implements OnInit {
 
   usuario: Usuario;
+  imagenSubir: File;
+
   constructor(public _usuarioService: UsuarioService) {
     this.usuario = this._usuarioService.usuario;
    }
@@ -28,4 +30,17 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  seleccionImagen(event) {
+    console.log(event);
+    this.imagenSubir = event.target.files[0];
+    console.log(this.imagenSubir);
+    if (!this.imagenSubir) {
+      this.imagenSubir = null;
+      return;
+    }
+  }
+
+  cambiarImagen() {
+    this._usuarioService.cambiarimagen(this.imagenSubir, this.usuario._id);
+  }
 }

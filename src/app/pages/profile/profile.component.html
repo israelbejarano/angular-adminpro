@@ -30,9 +30,9 @@
                 <h4 class="card-title">Fotografía del usuario</h4>
                 <h6 class="card-subtitle">nombre del usuario</h6>
                 <img src="">
-                <input type="file" placeholder="Sel Archivo">
+                <input type="file" (change)="seleccionImagen($event)">
                 <br><br>
-                <button type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Actualizar foto</button>
+                <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10"><i class="fa fa-save"></i> Actualizar foto</button>
             </div>
         </div>
     </div>

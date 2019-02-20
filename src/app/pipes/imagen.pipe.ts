@@ -18,13 +18,13 @@ export class ImagenPipe implements PipeTransform {
     }
     switch (tipo) {
       case 'usuario':
-        url += '/usuario' + img;
+        url += '/usuarios/' + img;
       break;
       case 'medico':
-        url += '/medico' + img;
+        url += '/medicos/' + img;
       break;
       case 'hospital':
-        url += '/hospital' + img;
+        url += '/hospitales/' + img;
       break;
       default:
         console.log('tipo de imagen no válido, usuario, medico, hospital');
