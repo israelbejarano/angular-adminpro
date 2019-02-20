@@ -86,7 +86,9 @@ export class UsuarioService {
      url += '?token=' + this.token;
      console.log(url);
      return this.http.put(url, usuario).pipe(map((resp: any) => {
-      return resp.usuario;
+       swal('Usuario actualizado', usuario.nombre, 'success');
+       this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
+       return resp.usuario;
      }));
     }
 }
