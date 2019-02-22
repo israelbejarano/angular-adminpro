@@ -82,13 +82,14 @@ export class UsuarioService {
      }));
    }
 
-   acualizarUsuario(usuario: Usuario) {
+   actualizarUsuario(usuario: Usuario) {
      let url = URL_SERVICIOS + '/usuario/' + usuario._id;
      url += '?token=' + this.token;
      console.log(url);
-     return this.http.put(url, usuario).pipe(map((resp: any) => {
-       swal('Usuario actualizado', usuario.nombre, 'success');
-       this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
+     return this.http.put(url, usuario).pipe(map((resp: any) => { // si el usuario es el que esta logeado actualizo el storage
+       if (usuario._id === this.usuario._id) {
+        this.guardarStorage(resp.usuario._id, this.token, resp.usuario);
+       }
        return resp.usuario;
      }));
     }
