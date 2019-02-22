@@ -2,12 +2,12 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <input type="text" #input class="form-control" placeholder="Buscar usuario...">
+                <input type="text" #input (keyup)="buscarUsuario(input.value)" class="form-control" placeholder="Buscar usuario...">
             </div>
         </div>
     </div>
 </div>
-<div class="row animated fadeIn">
+<div class="row animated fadeIn" *ngIf="cargando">
     <div class="col-sm-12">
         <div class="alert alert-warning text-center">
             <strong>Cargando</strong>
@@ -18,11 +18,11 @@
         </div>
     </div>
 </div>
-<div class="row animated fadeIn">
+<div class="row animated fadeIn" *ngIf="!cargando">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Usurios registrados ( <small>123</small> )</h3>
+                <h3 class="card-title">Usurios registrados ( <small>{{totalRegistros}}</small> )</h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -35,12 +35,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <tr *ngFor="let usuario of usuarios">
+                            <td class="w70"><img [src]="usuario.img | imagen" class="img-50"></td>
+                            <td>{{usuario.email}}</td>
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.role}}</td>
+                            <td>
+                                <label *ngIf="usuario.google" class="label label-danger">Google</label>
+                                <label *ngIf="!usuario.google" class="label label-info">Normal</label>
+                            </td>
                             <td>
                                 <button class="btn btn-primary"><i class="fa fa-save"></i></button>
                                 <button class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
@@ -48,8 +51,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="btn btn-secondary">Anteriores</button>
-                <button class="btn btn-secondary">Siguientes</button>
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary">Siguientes</button>
             </div>
         </div>
     </div>

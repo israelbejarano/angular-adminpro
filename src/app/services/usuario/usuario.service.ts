@@ -101,4 +101,18 @@ export class UsuarioService {
         this.guardarStorage(id, this.token, this.usuario);
       });
     }
+
+    cargarUsuarios(desde: number = 0) {
+      const url = URL_SERVICIOS + '/usuario?desde=' + desde;
+      return this.http.get(url).pipe(map(((resp: any) => {
+        return resp;
+      })));
+    }
+
+    buscarUsuarios(termino: string) {
+      const url = URL_SERVICIOS + '/busqueda/coleccion/usuarios/' + termino;
+      return this.http.get(url).pipe(map((resp: any) => {
+        return resp.usuarios;
+      }));
+    }
 }
