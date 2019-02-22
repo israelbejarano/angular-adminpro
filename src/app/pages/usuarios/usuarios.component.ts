@@ -3,6 +3,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/service.index';
 import { Validators } from '@angular/forms';
 
+declare var swal: any; // para evitar errores del IDE
+
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -54,6 +56,29 @@ export class UsuariosComponent implements OnInit {
       console.log(usuarios);
       this.usuarios = usuarios;
       this.cargando = false;
+    });
+  }
+
+  borrarUsuario(usuario: Usuario) {
+    console.log('usuario a borrar: ' + JSON.stringify(usuario));
+    if (usuario._id === this._usuarioService.usuario._id) { // el usuario del servicio es el usuario que esta logeado
+      swal('No se puede borrar usuario', 'No te puedes borrar a ti mismo', 'error');
+      return;
+    }
+    swal({
+      title: '¿Estás seguro?',
+      text: 'Estás a punto de borrar a ' + usuario.nombre,
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((borrar) => {
+      if (borrar) {
+        this._usuarioService.borrarUsuario(usuario._id).subscribe((borrado: boolean) => {
+          console.log(borrado);
+          this.cargarUsuarios();
+        });
+      }
     });
   }
 
