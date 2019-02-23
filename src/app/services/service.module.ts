@@ -8,6 +8,7 @@ import {
   SidebarService,
   SharedService,
   UsuarioService,
+  HospitalService,
   SubirArchivoService,
   LoginGuardGuard } from './service.index';
 
@@ -21,6 +22,7 @@ import {
     SidebarService,
     SharedService,
     UsuarioService,
+    HospitalService,
     SubirArchivoService,
     LoginGuardGuard,
     ModalUploadService
