@@ -25,6 +25,8 @@ import { ChartsModule } from 'ng2-charts';
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
 import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
         ProfileComponent,
         UsuariosComponent,
         ModalUploadComponent,
-        HospitalesComponent
+        HospitalesComponent,
+        MedicosComponent,
+        MedicoComponent
     ],
     imports: [
         SharedModule,
