@@ -16,8 +16,8 @@ export class HospitalService {
     console.log('Servicio de hospital listo');
   }
 
-  cargarHospitales() {
-    const url = URL_SERVICIOS + '/hospital';
+  cargarHospitales(desde: number) {
+    const url = URL_SERVICIOS + '/hospital?desde=' + desde;
     return this.http.get(url).pipe(map((resp: any) => {
       this.totalHospitales = resp.total;
       return resp.hospitales;
@@ -59,7 +59,8 @@ export class HospitalService {
   actualizarHospital(hospital: Hospital) {
     let url = URL_SERVICIOS + '/hospital/' + hospital._id;
     url += '?token=' + this._usuarioService.token;
-    return this.http.put(url, hosital).pipe(map((resp: any) => {
+    return this.http.put(url, hospital).pipe(map((resp: any) => {
+      swal('Hospital actualizado', hospital.nombre, 'success');
       return resp.hospital;
     }));
   }
