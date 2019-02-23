@@ -20,7 +20,7 @@ export class HospitalService {
     const url = URL_SERVICIOS + '/hospital';
     return this.http.get(url).pipe(map((resp: any) => {
       this.totalHospitales = resp.total;
-      return resp.hospital;
+      return resp.hospitales;
     }));
   }
 
