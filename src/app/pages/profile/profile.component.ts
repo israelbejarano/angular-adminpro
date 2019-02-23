@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     if (!this.usuario.google) {
       this.usuario.email = usuario.email;
     }
-    this._usuarioService.acualizarUsuario(this.usuario).subscribe(resp => {
+    this._usuarioService.actualizarUsuario(this.usuario).subscribe(resp => {
       console.log(resp);
     });
   }
@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
     reader.onloadend = () => {
       console.log(reader.result);
       this.imagenTemp = reader.result;
-    }
+    };
   }
 
   cambiarImagen() {
