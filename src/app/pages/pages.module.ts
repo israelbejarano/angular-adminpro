@@ -24,6 +24,7 @@ import { ChartsModule } from 'ng2-charts';
 
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
+import { HospitalesComponent } from './hospitales/hospitales.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PAGES_ROUTES } from './pages.routes';
         RxjsComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        HospitalesComponent
     ],
     imports: [
         SharedModule,
