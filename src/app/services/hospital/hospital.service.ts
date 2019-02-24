@@ -24,6 +24,14 @@ export class HospitalService {
     }));
   }
 
+  cargarHospitalesSinPaginar() {
+    const url = URL_SERVICIOS + '/hospital/todos';
+    return this.http.get(url).pipe(map((resp: any) => {
+      this.totalHospitales = resp.total;
+      return resp.hospitales;
+    }));
+  }
+
   obtenerHospital(id: string) {
     const url = URL_SERVICIOS + '/hospital/' + id;
     return this.http.get(url).pipe(map((resp: any) => {
