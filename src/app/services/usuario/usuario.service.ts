@@ -93,6 +93,11 @@ export class UsuarioService {
      return this.http.post(url, usuario).pipe(map((resp: any) => {
        swal('Usuario creado', usuario.email, 'success');
        return resp.usuario;
+     }), catchError(err => {
+      console.log('err.status: ' + err.status);
+      console.log(err.error.mensaje);
+      swal('Error creando usuario', err.error.errors.message, 'error');
+      return throwError(err);
      }));
    }
 
@@ -105,6 +110,11 @@ export class UsuarioService {
         this.guardarStorage(resp.usuario._id, this.token, resp.usuario, this.menu);
        }
        return resp.usuario;
+      }), catchError(err => {
+        console.log('err.status: ' + err.status);
+        console.log(err.error.mensaje);
+        swal('Error creando usuario', err.error.errors.message, 'error');
+        return throwError(err);
      }));
     }
 
