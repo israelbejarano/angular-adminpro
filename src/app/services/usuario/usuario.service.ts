@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+import { throwError } from 'rxjs/internal/observable/throwError';
 
 
 @Injectable({
@@ -79,6 +80,11 @@ export class UsuarioService {
       this.guardarStorage(resp.id, resp.token, resp.usuario, resp.menu);
       console.log(resp);
       return resp.usuario;
+    }), catchError(err => {
+      console.log('err.status: ' + err.status);
+      console.log(err.error.mensaje);
+      swal('Error en el login', err.error.mensaje, 'error');
+      return throwError(err);
     }));
    }
 
